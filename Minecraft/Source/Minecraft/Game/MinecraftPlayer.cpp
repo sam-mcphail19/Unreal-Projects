@@ -3,14 +3,6 @@
 AMinecraftPlayer::AMinecraftPlayer() {
 	PrimaryActorTick.bCanEverTick = true;
 
-	/*Mesh = CreateDefaultSubobject<UStaticMeshComponent>("Mesh");
-	SpringArm = CreateDefaultSubobject<USpringArmComponent>("SpringArm");
-	Camera = CreateDefaultSubobject<UCameraComponent>("Camera");
-
-	//RootComponent = Mesh;
-	//SpringArm->SetupAttachment(Mesh);
-	Camera->SetupAttachment(SpringArm);
-	*/
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
 	bUseControllerRotationYaw = false;
