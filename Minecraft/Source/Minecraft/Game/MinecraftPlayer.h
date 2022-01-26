@@ -21,15 +21,15 @@ protected:
 	virtual void BeginPlay() override;
 
 	// Components
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
-	USpringArmComponent* SpringArm;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
-	UCameraComponent* Camera;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+		USpringArmComponent* SpringArm;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+		UCameraComponent* Camera;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float MoveForce = 50000.0f;
+		float MoveForce = 50000.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float JumpImpulse = 50.0f;
+		float JumpImpulse = 50.0f;
 
 
 public:

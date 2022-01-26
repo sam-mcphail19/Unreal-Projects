@@ -41,5 +41,5 @@ void AWorldGenerator::CreateBlock(int X, int Y, int Z) {
 	ABlock* Block = GetWorld()->SpawnActor<ABlock>(
 		FVector(X * ChunkScale, Y * ChunkScale, Z),
 		FRotator(0, 0, 0)
-	);
+		);
 }

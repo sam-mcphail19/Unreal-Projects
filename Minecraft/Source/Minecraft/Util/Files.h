@@ -4,9 +4,8 @@
 
 #include "CoreMinimal.h"
 
-class MINECRAFT_API Files
-{
+class MINECRAFT_API Files {
 public:
 	static UMaterial* GetMaterial(FString Path);
-	
+
 };

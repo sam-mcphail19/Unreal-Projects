@@ -7,11 +7,10 @@
 #include "WorldBlocks.generated.h"
 
 UCLASS()
-class MINECRAFT_API AWorldBlocks : public AActor
-{
+class MINECRAFT_API AWorldBlocks : public AActor {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AWorldBlocks();
 
@@ -19,7 +18,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

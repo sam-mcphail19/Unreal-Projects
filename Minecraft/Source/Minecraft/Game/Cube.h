@@ -8,8 +8,7 @@
 #include "Cube.generated.h"
 
 UCLASS()
-class MINECRAFT_API ACube : public AActor
-{
+class MINECRAFT_API ACube : public AActor {
 	GENERATED_BODY()
 
 public:

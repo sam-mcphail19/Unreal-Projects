@@ -4,23 +4,20 @@
 #include "WorldBlocks.h"
 
 // Sets default values
-AWorldBlocks::AWorldBlocks()
-{
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+AWorldBlocks::AWorldBlocks() {
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
 
 // Called when the game starts or when spawned
-void AWorldBlocks::BeginPlay()
-{
+void AWorldBlocks::BeginPlay() {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
-void AWorldBlocks::Tick(float DeltaTime)
-{
+void AWorldBlocks::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
 
 }

@@ -6,7 +6,7 @@ UMaterial* Files::GetMaterial(FString Path) {
 	Path = "Material'" + Path + "'";
 	const ConstructorHelpers::FObjectFinder<UMaterial> Material(*Path);
 
-	if(!Material.Succeeded()) {
+	if (!Material.Succeeded()) {
 		return nullptr;
 	}
 
