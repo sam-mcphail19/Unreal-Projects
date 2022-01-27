@@ -35,9 +35,9 @@ void ABlock::CreateCube(ACube& Cube, const FLinearColor& Color) {
 
 	for (int i = 0; i < ACube::NUM_VERTICES * 3; i += 3) {
 		Vertices.Add(FVector(
-			ACube::VERTEX_ARRAY[i] * AWorldGenerator::ChunkScale,
-			ACube::VERTEX_ARRAY[i + 1] * AWorldGenerator::ChunkScale,
-			ACube::VERTEX_ARRAY[i + 2] * AWorldGenerator::ChunkScale
+			ACube::VERTEX_ARRAY[i] * AConstants::ChunkScale,
+			ACube::VERTEX_ARRAY[i + 1] * AConstants::ChunkScale,
+			ACube::VERTEX_ARRAY[i + 2] * AConstants::ChunkScale
 		));
 	}
 
