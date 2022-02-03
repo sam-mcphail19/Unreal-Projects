@@ -3,27 +3,23 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Cube.h"
-#include "GameFramework/Actor.h"
-#include "Block.generated.h"
+#include "Minecraft/Util/Files.h"
 
-UCLASS()
-class MINECRAFT_API ABlock : public AActor {
-	GENERATED_BODY()
-
+class Block {
 public:
-	// Sets default values for this actor's properties
-	ABlock();
+	int Index;
+	std::string Name;
+	UMaterial* Material;
 
-	ACube* Mesh;
+	Block(int Index, std::string Name, FString MaterialPath) {
+		this->Index = Index;
+		this->Name = Name;
+		this->Material = Files::GetMaterial(MaterialPath);
+	}
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	static void CreateCube(ACube& Cube, const FLinearColor& Color);
+	Block(int Index, std::string Name) {
+		this->Index = Index;
+		this->Name = Name;
+		this->Material = Files::GetMaterial("/Game/StarterContent/Materials/M_AssetPlatform.M_AssetPlatform");
+	}
 };

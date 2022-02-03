@@ -7,6 +7,8 @@
 AWorldGenerator::AWorldGenerator() {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	BlockRegistry::Init();
 }
 
 // Called when the game starts or when spawned
@@ -22,36 +24,16 @@ void AWorldGenerator::Tick(float DeltaTime) {
 }
 
 void AWorldGenerator::GenerateWorld() {
-	for (int i = 0; i < 1; i++) {
-		for (int j = 0; j < 1; j++) {
-			CreateChunk(FVector(i, j, 0));
+	for (int i = -1; i < 1; i++) {
+		for (int j = -1; j < 1; j++) {
+			FVector Pos = FVector(i * AConstants::ChunkSize * AConstants::ChunkScale,
+			                      j * AConstants::ChunkSize * AConstants::ChunkScale,
+			                      0);
+			AChunk* Chunk = GetWorld()->SpawnActor<AChunk>(
+				Pos,
+				FRotator(0, 0, 0)
+			);
+			Chunk->SetChunkOrigin(Pos);
 		}
 	}
-}
-
-ABlock* AWorldGenerator::CreateBlock(FVector Pos) {
-	return CreateBlock(Pos.X, Pos.Y, Pos.Z);
-}
-
-ABlock* AWorldGenerator::CreateBlock(int X, int Y, int Z) {
-	ABlock* Block = GetWorld()->SpawnActor<ABlock>(
-		FVector(X * AConstants::ChunkScale, Y * AConstants::ChunkScale, Z),
-		FRotator(0, 0, 0)
-	);
-	return Block;
-}
-
-AChunk* AWorldGenerator::CreateChunk(FVector Pos) {
-	AChunk* Chunk = GetWorld()->SpawnActor<AChunk>(
-		Pos,
-		FRotator(0, 0, 0)
-	);
-
-	// All blocks under a height of 16
-	for (int i = 0; i < 16 * AConstants::ChunkSize * AConstants::ChunkSize; i++) {
-		const FVector BlockPos = AChunk::IndexToPos(i);
-		Chunk->SetBlock(BlockPos, CreateBlock(BlockPos + Chunk->ChunkOrigin));
-	}
-
-	return Chunk;
 }

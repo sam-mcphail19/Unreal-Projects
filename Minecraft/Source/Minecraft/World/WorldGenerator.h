@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "Chunk.h"
 #include "GameFramework/Actor.h"
-#include "Minecraft/Game/Block.h"
 #include "WorldGenerator.generated.h"
 
 UCLASS()
@@ -25,8 +24,5 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	void GenerateWorld();
-	ABlock* CreateBlock(FVector Pos);
-	ABlock* CreateBlock(int X, int Y, int Z);
 
-	AChunk* CreateChunk(FVector Pos);
 };

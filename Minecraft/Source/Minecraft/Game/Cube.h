@@ -3,8 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
 #include "ProceduralMeshComponent.h"
+#include "GameFramework/Actor.h"
+#include "Minecraft/Constants.h"
+#include "Minecraft/Util/Files.h"
 #include "Cube.generated.h"
 
 UCLASS()
@@ -16,9 +18,13 @@ public:
 	ACube();
 
 	UPROPERTY()
-		UProceduralMeshComponent* Mesh;
+	UProceduralMeshComponent* Mesh;
 
 	UMaterial* Material;
+
+	TArray<FVector> Vertices;
+	TArray<int32> Indices;
+	TArray<FLinearColor> Colors;
 
 protected:
 	// Called when the game starts or when spawned
@@ -27,6 +33,8 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void CreateCube();
 
 	const static int NUM_VERTICES = 6 * 4;
 	const static int VERTEX_ARRAY[NUM_VERTICES * 3];
