@@ -5,10 +5,11 @@
 #include "CoreMinimal.h"
 #include "ProceduralMeshComponent.h"
 #include "GameFramework/Actor.h"
-#include "Minecraft/Game/Block.h"
-#include "Minecraft/Game/Cube.h"
 #include "Minecraft/Constants.h"
+#include "Minecraft/Game/Block.h"
 #include "Minecraft/Game/BlockRegistry.h"
+#include "Minecraft/Game/Cube.h"
+#include "Minecraft/Game/NoiseGenerator.h"
 #include "Chunk.generated.h"
 
 UCLASS()
@@ -37,6 +38,7 @@ protected:
 
 private:
 	int Blocks[AConstants::ChunkSize * AConstants::ChunkSize * AConstants::WorldHeight];
+	NoiseGenerator NoiseGen;
 
 public:
 	// Called every frame

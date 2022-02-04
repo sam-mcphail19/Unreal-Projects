@@ -24,8 +24,8 @@ void AWorldGenerator::Tick(float DeltaTime) {
 }
 
 void AWorldGenerator::GenerateWorld() {
-	for (int i = -1; i < 1; i++) {
-		for (int j = -1; j < 1; j++) {
+	for (int i = -1; i < 5; i++) {
+		for (int j = -1; j < 5; j++) {
 			FVector Pos = FVector(i * AConstants::ChunkSize * AConstants::ChunkScale,
 			                      j * AConstants::ChunkSize * AConstants::ChunkScale,
 			                      0);

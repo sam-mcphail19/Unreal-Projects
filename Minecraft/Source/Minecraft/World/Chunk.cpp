@@ -18,6 +18,8 @@ AChunk::AChunk() {
 void AChunk::BeginPlay() {
 	Super::BeginPlay();
 
+	NoiseGen = NoiseGenerator();
+
 	Populate();
 	CreateMesh();
 	ApplyMesh();
@@ -29,9 +31,14 @@ void AChunk::Tick(float DeltaTime) {
 }
 
 void AChunk::Populate() {
-	for (int i = 0; i < AConstants::ChunkSize * AConstants::ChunkSize; i++) {
-		const FVector BlockPos = IndexToPos(i);
-		SetBlock(BlockPos, BlockRegistry::GetBlock(DIRT));
+	for (int x = 0; x < AConstants::ChunkSize; x++) {
+		for (int y = 0; y < AConstants::ChunkSize; y++) {
+			int Height = FMath::Floor(
+				(NoiseGen.Perlin2D(x + ChunkOrigin.X, y + ChunkOrigin.Y, 10, 1, 1234, true) + 1) / 2 *
+				AConstants::WorldHeight);
+			const FVector BlockPos = FVector(x, y, Height);
+			SetBlock(BlockPos, BlockRegistry::GetBlock(DIRT));
+		}
 	}
 }
 
